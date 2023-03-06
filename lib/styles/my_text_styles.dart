@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// Project imports:
+import 'package:flutter_test_project/styles/my_colors.dart';
 
 class MyTextStyles {
   MyTextStyles._();

@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/widgets/my_widgets.dart';
 

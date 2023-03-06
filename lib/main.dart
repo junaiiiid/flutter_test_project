@@ -1,14 +1,21 @@
+// Dart imports:
 import 'dart:io';
+
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test_project/constants/numeric_constants.dart';
-import 'package:flutter_test_project/screens/splash_screen.dart';
-import 'package:flutter_test_project/services/state_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
+
+// Project imports:
+import 'package:flutter_test_project/constants/numeric_constants.dart';
+import 'package:flutter_test_project/screens/splash_screen.dart';
+import 'package:flutter_test_project/services/state_service.dart';
 
 void main() {
   runApp(const ProviderScope(child: Start()));

@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+// Project imports:
 import 'package:flutter_test_project/constants/numeric_constants.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
