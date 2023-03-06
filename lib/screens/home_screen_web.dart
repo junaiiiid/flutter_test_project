@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../services/state_service.dart';
-import '../widgets/my_widgets.dart';
+import 'package:flutter_test_project/services/state_service.dart';
+import 'package:flutter_test_project/widgets/my_widgets.dart';
 
 class HomeScreenWeb extends ConsumerWidget {
   const HomeScreenWeb({Key? key}) : super(key: key);
