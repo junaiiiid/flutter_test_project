@@ -17,6 +17,7 @@ class MySheets {
       context: StateService.context,
       builder: (BuildContext context) {
         final state = context.read(StateService.homeStateHandler);
+
         return Wrap(
           children: [
             Container(
@@ -39,24 +40,36 @@ class MySheets {
                         style: MyTextStyles.h1,
                       ),
                     ),
-                    MyWidgets.customDropDownSettingItem(settingsLabel: "LABEL", initialValue: state.labelValue),
-                    MyWidgets.customDropDownSettingItem(settingsLabel: "KEY", initialValue: state.keyValue),
-                    MyWidgets.customDropDownSettingItem(settingsLabel: "TYPE", initialValue: state.typeValue),
-                    MyWidgets.customDropDownSettingItem(settingsLabel: "VALUE", initialValue: state.valueValue),
+                    MyWidgets.customDropDownSettingItem(
+                        settingsLabel: "LABEL", initialValue: state.labelValue),
+                    MyWidgets.customDropDownSettingItem(
+                        settingsLabel: "KEY", initialValue: state.keyValue),
+                    MyWidgets.customDropDownSettingItem(
+                        settingsLabel: "TYPE", initialValue: state.typeValue),
+                    MyWidgets.customDropDownSettingItem(
+                        settingsLabel: "VALUE", initialValue: state.valueValue),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        MyButtons.shortButton(backgroundColor: MyColors.blueShade1, onTap: (){
-                          state.saveConfiguration();
-                          StateService.pop();
-                        }, buttonText: "SAVE"),
-                        MyButtons.shortButton(backgroundColor: MyColors.blueShade1, onTap: (){
-                          state.resetDropDown();
-                          StateService.pop();
-                        }, buttonText: "RESET"),
+                        MyButtons.shortButton(
+                            backgroundColor: MyColors.blueShade1,
+                            onTap: () {
+                              state.saveConfiguration();
+                              StateService.pop();
+                            },
+                            buttonText: "SAVE"),
+                        MyButtons.shortButton(
+                            backgroundColor: MyColors.blueShade1,
+                            onTap: () {
+                              state.resetDropDown();
+                              StateService.pop();
+                            },
+                            buttonText: "RESET"),
                       ],
                     ),
-                    SizedBox(height: 50.h,)
+                    SizedBox(
+                      height: 50.h,
+                    )
                   ],
                 ),
               ),

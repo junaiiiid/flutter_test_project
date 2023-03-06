@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_project/models/data_grid_model.dart';
-import 'package:collection/collection.dart';
 
-class HomeViewModel extends ChangeNotifier{
-  List<String> columnLabels = ["LABEL","KEY","TYPE","VALUE"];
+class HomeViewModel extends ChangeNotifier {
+  List<String> columnLabels = ["LABEL", "KEY", "TYPE", "VALUE"];
 
   List<DataGridModel> dataGridList = [];
 
   List<DataGridModel> configurableDataGridList = [];
 
-  List<String> get configurableDropDown  => ["LABEL","KEY","TYPE","VALUE"];
+  List<String> get configurableDropDown => ["LABEL", "KEY", "TYPE", "VALUE"];
 
   String _labelValue = "LABEL";
   String _keyValue = "KEY";
@@ -44,7 +43,7 @@ class HomeViewModel extends ChangeNotifier{
     notifyListeners();
   }
 
-  void resetDropDown(){
+  void resetDropDown() {
     configurableDataGridList = dataGridList;
     _labelValue = "LABEL";
     _keyValue = "KEY";
@@ -53,10 +52,10 @@ class HomeViewModel extends ChangeNotifier{
     notifyListeners();
   }
 
-  void saveConfiguration(){
+  void saveConfiguration() {
     List<DataGridModel> tempList = [];
-    for(var dataGrid in configurableDataGridList){
-      switch(_labelValue){
+    for (var dataGrid in configurableDataGridList) {
+      switch (_labelValue) {
         case "LABEL":
           dataGrid.label = dataGrid.label;
           break;
@@ -70,7 +69,7 @@ class HomeViewModel extends ChangeNotifier{
           dataGrid.label = dataGrid.value;
           break;
       }
-      switch(_keyValue){
+      switch (_keyValue) {
         case "LABEL":
           dataGrid.key = dataGrid.label;
           break;
@@ -84,7 +83,7 @@ class HomeViewModel extends ChangeNotifier{
           dataGrid.key = dataGrid.value;
           break;
       }
-      switch(_typeValue){
+      switch (_typeValue) {
         case "LABEL":
           dataGrid.type = dataGrid.label;
           break;
@@ -98,7 +97,7 @@ class HomeViewModel extends ChangeNotifier{
           dataGrid.type = dataGrid.value;
           break;
       }
-      switch(_valueValue){
+      switch (_valueValue) {
         case "LABEL":
           dataGrid.value = dataGrid.label;
           break;

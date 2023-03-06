@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test_project/constants/extensions.dart';
 import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';

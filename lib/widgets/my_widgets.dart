@@ -99,8 +99,7 @@ class MyWidgets {
   }
 
   static customDropDownSettingItem(
-      {required String settingsLabel,
-      required String initialValue}) {
+      {required String settingsLabel, required String initialValue}) {
     String dropdownValue = initialValue;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 25.h),
@@ -128,11 +127,11 @@ class MyWidgets {
                   color: MyColors.white,
                 ),
                 dropdownColor: MyColors.blueShade1,
-                onChanged: (String? value){
-                  setState((){
+                onChanged: (String? value) {
+                  setState(() {
                     dropdownValue = value!;
                   });
-                  switch(settingsLabel){
+                  switch (settingsLabel) {
                     case "LABEL":
                       state.labelValue = value!;
                       break;
@@ -148,8 +147,7 @@ class MyWidgets {
                   }
                 },
                 items: state.configurableDropDown
-                    .map<DropdownMenuItem<String>>(
-                        (String value) {
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(

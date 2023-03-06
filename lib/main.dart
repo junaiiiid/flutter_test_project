@@ -46,7 +46,9 @@ class Start extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: StateService.navigatorKey,
           routes: StateService.routes,
-          home: SplashScreen(iconData: iconData,),
+          home: SplashScreen(
+            iconData: iconData,
+          ),
           theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme()),
         );
       },

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test_project/constants/extensions.dart';
 import 'package:flutter_test_project/constants/string_constants.dart';
@@ -14,7 +13,6 @@ import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/widgets/my_app_bars.dart';
 import 'package:flutter_test_project/widgets/my_popups.dart';
 import 'package:flutter_test_project/widgets/my_sheets.dart';
-import 'package:flutter_test_project/widgets/my_widgets.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 
 class HomeScreen extends StatelessWidget {
