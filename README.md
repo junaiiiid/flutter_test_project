@@ -8,26 +8,27 @@ This is a cross-platform mobile application that allows users to customize param
 ##Splash Icon
 The app's splash screen will show a platform-specific icon when launched. For instance, Android will show the Android icon, iOS will show the Apple icon, and Web will show the Web icon.
 
-![img_6.png](img_6.png)![img.png](img.png)
+![img_7.png](img_7.png)
 
-![img_1.png](img_1.png)
+![img_8.png](img_8.png)
 
-![img_2.png](img_2.png)
+![img_9.png](img_9.png)
 
 ##Customizable Parameters
-App Name allows users to customize various parameters for the data provided in the API. Users can modify any parameter on a small screen by navigating to the settings screen.
+The App allows users to customize various parameters for the data provided in the API. Users can modify any parameter on a small screen by navigating to the settings screen.
+
+![img_10.png](img_10.png)
 
 ##Interface
 The app will display a list tile interface on a small screen and a data table interface on a big screen. The list tile interface is fully configurable, while the data table interface is not configurable.
 
-![img_3.png](img_3.png)
+![img_11.png](img_11.png)
 
-![img_4.png](img_4.png)
+![img_12.png](img_12.png)
 
 ##Swappable Parameters
 Users can swap the values of any parameter, such as "LABEL" with "TYPE" or "TYPE" with a value, among others.
 
-![img_5.png](img_5.png)
 
 ##Compatibility
 This app is compatible with iOS, Android, and Web platforms. It is tested and works seamlessly on the latest versions of these platforms.
