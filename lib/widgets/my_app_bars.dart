@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 
 // Project imports:
 import 'package:flutter_test_project/constants/numeric_constants.dart';
+import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
 
@@ -40,6 +42,7 @@ class MyAppBars {
         ),
       ),
       actions: [
+        ResponsiveWrapper.of(StateService.context).isSmallerThan(TABLET)?
         IconButton(
           onPressed: actionOnTap,
           icon: Icon(
@@ -47,7 +50,7 @@ class MyAppBars {
             color: actionIconColor ?? MyColors.white,
             size: actionIconRadius ?? 30.r,
           ),
-        ),
+        ):Container(),
       ],
     );
   }
