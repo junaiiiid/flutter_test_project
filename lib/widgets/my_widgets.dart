@@ -104,12 +104,14 @@ class MyWidgets {
   }
 
   static customDropDownSettingItem(
-      {required String settingsLabel, required String initialValue}) {
+      {required String settingsLabel, required String initialValue,}) {
     String dropdownValue = initialValue;
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 25.h),
       child: StatefulBuilder(builder: (context, setState) {
         final state = context.read(StateService.homeStateHandler);
+
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

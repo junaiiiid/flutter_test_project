@@ -47,7 +47,7 @@ class MyAppBars {
             color: actionIconColor ?? MyColors.white,
             size: actionIconRadius ?? 30.r,
           ),
-        )
+        ),
       ],
     );
   }

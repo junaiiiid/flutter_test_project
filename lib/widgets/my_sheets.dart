@@ -46,13 +46,13 @@ class MySheets {
                       ),
                     ),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "LABEL", initialValue: state.labelValue),
+                        settingsLabel: "LABEL", initialValue: state.labelValue,),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "KEY", initialValue: state.keyValue),
+                        settingsLabel: "KEY", initialValue: state.keyValue,),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "TYPE", initialValue: state.typeValue),
+                        settingsLabel: "TYPE", initialValue: state.typeValue,),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "VALUE", initialValue: state.valueValue),
+                        settingsLabel: "VALUE", initialValue: state.valueValue,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -62,19 +62,19 @@ class MySheets {
                               state.saveConfiguration();
                               StateService.pop();
                             },
-                            buttonText: "SAVE"),
+                            buttonText: "SAVE",),
                         MyButtons.shortButton(
                             backgroundColor: MyColors.blueShade1,
                             onTap: () {
                               state.resetDropDown();
                               StateService.pop();
                             },
-                            buttonText: "RESET"),
+                            buttonText: "RESET",),
                       ],
                     ),
                     SizedBox(
                       height: 50.h,
-                    )
+                    ),
                   ],
                 ),
               ),

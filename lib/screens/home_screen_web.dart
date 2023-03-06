@@ -14,6 +14,7 @@ class HomeScreenWeb extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(StateService.homeStateHandler);
+
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       child: SingleChildScrollView(
@@ -21,17 +22,20 @@ class HomeScreenWeb extends ConsumerWidget {
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: DataTable(
-              columns: state.columnLabels
-                  .map<DataColumn>(
-                      (label) => MyWidgets.labelColumn(labelText: label))
-                  .toList(),
-              rows: state.dataGridList
-                  .map<DataRow>((value) => MyWidgets.labelRow(
+            columns: state.columnLabels
+                .map<DataColumn>(
+                  (label) => MyWidgets.labelColumn(labelText: label),
+                )
+                .toList(),
+            rows: state.dataGridList
+                .map<DataRow>((value) => MyWidgets.labelRow(
                       firstLabelText: value.label.toString(),
                       secondLabelText: value.key.toString(),
                       thirdLabelText: value.type.toString(),
-                      fourthLabelText: value.value.toString()))
-                  .toList()),
+                      fourthLabelText: value.value.toString(),
+                    ))
+                .toList(),
+          ),
         ),
       ),
     );

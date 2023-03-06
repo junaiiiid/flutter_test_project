@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: NumericConstants.animationDuration)
+        vsync: this, duration: NumericConstants.animationDuration,)
       ..repeat(reverse: true);
     _animation = NumericConstants.animationTween.animate(CurvedAnimation(
       parent: _controller,

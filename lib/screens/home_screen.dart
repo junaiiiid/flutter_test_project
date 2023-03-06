@@ -31,27 +31,33 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: MyColors.blueShade3,
       appBar: MyAppBars.genericAppBar(
-          leadingOnTap: () => MyPopups.showAlertPopupWithOptions(
-              onLeftTap: () => StateService.pop(), onRightTap: () => exit(0)),
-          actionOnTap: () => MySheets.showSettingsSheet(),
-          titleText: StringConstants.appBarTitle),
+        leadingOnTap: () => MyPopups.showAlertPopupWithOptions(
+          onLeftTap: () => StateService.pop(),
+          onRightTap: () => exit(0),
+        ),
+        actionOnTap: () => MySheets.showSettingsSheet(),
+        titleText: StringConstants.appBarTitle,
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: FutureBuilder<ApiModel>(
-            future: NetworkService.fetchData(),
-            builder: (context, AsyncSnapshot<ApiModel> snapshot) {
-              if (snapshot.hasData) {
-                populateDataGrid(json: snapshot.data!);
-                return ResponsiveWrapper.of(context).isSmallerThan(TABLET)
-                    ? const HomeScreenMobile()
-                    : const HomeScreenWeb();
-              }
-              return Center(
-                child: CircularProgressIndicator(
-                  color: MyColors.white,
-                ),
-              );
-            }),
+          future: NetworkService.fetchData(),
+          builder: (context, AsyncSnapshot<ApiModel> snapshot) {
+            if (snapshot.hasData) {
+              populateDataGrid(json: snapshot.data!);
+
+              return ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+                  ? const HomeScreenMobile()
+                  : const HomeScreenWeb();
+            }
+
+            return Center(
+              child: CircularProgressIndicator(
+                color: MyColors.white,
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -66,13 +72,12 @@ class HomeScreen extends StatelessWidget {
           label: key,
           key: key,
           type: jsonParsed[key].runtimeType.toString(),
-          value: jsonParsed[key].toString()));
+          value: jsonParsed[key].toString(),));
       index = (index == 10) ? 0 : (index + 1);
     }
-    StateService.context.read(StateService.homeStateHandler).dataGridList =
-        dataGridList;
-    StateService.context
-        .read(StateService.homeStateHandler)
-        .configurableDataGridList = dataGridList;
+
+    final state = StateService.context.read(StateService.homeStateHandler);
+    state.dataGridList = dataGridList;
+    state.configurableDataGridList = dataGridList;
   }
 }

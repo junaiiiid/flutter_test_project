@@ -31,15 +31,8 @@ class Start extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         late IconData iconData;
-        if (kIsWeb) {
-          iconData = Icons.web;
-        } else {
-          if (Platform.isAndroid) {
-            iconData = Icons.android;
-          } else {
-            iconData = Icons.apple;
-          }
-        }
+        iconData = kIsWeb ? Icons.web : Platform.isAndroid ? Icons.android : Icons.apple;
+
         return MaterialApp(
           builder: (context, widget) => ResponsiveWrapper.builder(
             BouncingScrollWrapper.builder(context, widget!),

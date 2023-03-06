@@ -22,7 +22,7 @@ class MyPopups {
       Color? topPortionColor,
       Color? dialogColor,
       required Function() onLeftTap,
-      required Function() onRightTap}) {
+      required Function() onRightTap,}) {
     showDialog(
         context: StateService.context,
         builder: (context) {
@@ -34,7 +34,7 @@ class MyPopups {
                   color: dialogColor ?? MyColors.blueShade2,
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.r),
-                  )),
+                  ),),
               child: Flex(
                 direction: Axis.vertical,
                 children: [
@@ -50,7 +50,7 @@ class MyPopups {
                           color: topPortionColor ?? MyColors.blueShade3,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(10.r),
-                              topRight: Radius.circular(10.r))),
+                              topRight: Radius.circular(10.r),),),
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.w),
                         child: Row(
@@ -101,11 +101,11 @@ class MyPopups {
                         MyButtons.shortButton(
                             backgroundColor: MyColors.red,
                             onTap: onLeftTap,
-                            buttonText: leftButtonText ?? StringConstants.no),
+                            buttonText: leftButtonText ?? StringConstants.no,),
                         MyButtons.shortButton(
                             backgroundColor: MyColors.green,
                             onTap: onRightTap,
-                            buttonText: rightButtonText ?? StringConstants.yes),
+                            buttonText: rightButtonText ?? StringConstants.yes,),
                       ],
                     ),
                   ),
@@ -113,6 +113,6 @@ class MyPopups {
               ),
             ),
           );
-        });
+        },);
   }
 }

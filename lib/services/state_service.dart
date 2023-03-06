@@ -64,9 +64,9 @@ class StateService {
 
   ///PUSH NAMED AND REMOVE UNTIL
   static pushNamedAndRemoveUntil(
-      {required String toBePushed, required String toBeRemovedUntil}) {
+      {required String toBePushed, required String toBeRemovedUntil,}) {
     navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        toBePushed, ModalRoute.withName(toBeRemovedUntil));
+        toBePushed, ModalRoute.withName(toBeRemovedUntil),);
   }
 
   ///PUSH NAMED AND REMOVE ALL
