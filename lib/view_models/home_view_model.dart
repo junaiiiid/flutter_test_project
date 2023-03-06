@@ -58,26 +58,93 @@ class HomeViewModel extends ChangeNotifier{
   void saveConfiguration(){
     List<DataGridModel> tempList = [];
     for(var dataGrid in configurableDataGridList){
+      switch(_labelValue){
+        case "LABEL":
+          dataGrid.label = dataGrid.label;
+          break;
+        case "KEY":
+          dataGrid.label = dataGrid.key;
+          break;
+        case "TYPE":
+          dataGrid.label = dataGrid.type;
+          break;
+        case "VALUE":
+          dataGrid.label = dataGrid.value;
+          break;
+      }
+      switch(_keyValue){
+        case "LABEL":
+          dataGrid.key = dataGrid.label;
+          break;
+        case "KEY":
+          dataGrid.key = dataGrid.key;
+          break;
+        case "TYPE":
+          dataGrid.key = dataGrid.type;
+          break;
+        case "VALUE":
+          dataGrid.key = dataGrid.value;
+          break;
+      }
+      switch(_typeValue){
+        case "LABEL":
+          dataGrid.type = dataGrid.label;
+          break;
+        case "KEY":
+          dataGrid.type = dataGrid.key;
+          break;
+        case "TYPE":
+          dataGrid.type = dataGrid.type;
+          break;
+        case "VALUE":
+          dataGrid.type = dataGrid.value;
+          break;
+      }
+      switch(_valueValue){
+        case "LABEL":
+          dataGrid.value = dataGrid.label;
+          break;
+        case "KEY":
+          dataGrid.value = dataGrid.key;
+          break;
+        case "TYPE":
+          dataGrid.value = dataGrid.type;
+          break;
+        case "VALUE":
+          dataGrid.value = dataGrid.value;
+          break;
+      }
+      tempList.add(dataGrid);
+    }
+    configurableDataGridList = tempList;
+    notifyListeners();
+  }
+
+  ///TODO : Implement swapping
+  ///IF YOU NEED TO SWAP VALUES
+/*  void saveConfiguration(){
+    List<DataGridModel> tempList = [];
+    for(var dataGrid in configurableDataGridList){
       ///SWAP CONFIG FOR LABEL
       switch(_labelValue){
         case "LABEL":
         ///no edit
-        break;
+          break;
         case "KEY":
-        String? temp = dataGrid.label;
-        dataGrid.label = dataGrid.key;
-        dataGrid.key = temp;
-        break;
+          String? temp = dataGrid.label;
+          dataGrid.label = dataGrid.key;
+          dataGrid.key = temp;
+          break;
         case "TYPE":
           String? temp = dataGrid.label;
           dataGrid.label = dataGrid.type;
           dataGrid.type = temp;
-        break;
+          break;
         case "VALUE":
           String? temp = dataGrid.label;
           dataGrid.label = dataGrid.value;
           dataGrid.value = temp;
-        break;
+          break;
       }
       ///SWAP CONFIG FOR KEY
       switch(_keyValue){
@@ -87,7 +154,7 @@ class HomeViewModel extends ChangeNotifier{
           dataGrid.label = temp;
           break;
         case "KEY":
-          ///no edit
+        ///no edit
           break;
         case "TYPE":
           String? temp = dataGrid.key;
@@ -113,7 +180,7 @@ class HomeViewModel extends ChangeNotifier{
           dataGrid.key = temp;
           break;
         case "TYPE":
-          ///no edit
+        ///no edit
           break;
         case "VALUE":
           String? temp = dataGrid.type;
@@ -139,12 +206,12 @@ class HomeViewModel extends ChangeNotifier{
           dataGrid.type = temp;
           break;
         case "VALUE":
-          ///no edit
+        ///no edit
           break;
       }
       tempList.add(dataGrid);
     }
     configurableDataGridList = tempList;
     notifyListeners();
-  }
+  }*/
 }
