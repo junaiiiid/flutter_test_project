@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_test_project/constants/string_constants.dart';
 
 // Project imports:
+import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/models/data_grid_model.dart';
 
 class HomeViewModel extends ChangeNotifier {

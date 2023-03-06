@@ -2,10 +2,10 @@
 import 'dart:convert';
 
 // Package imports:
-import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:http/http.dart' as http;
 
 // Project imports:
+import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/models/api_model.dart';
 
 class NetworkService{

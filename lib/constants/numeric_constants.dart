@@ -1,5 +1,7 @@
 // Flutter imports:
 import 'package:flutter/animation.dart';
+
+// Package imports:
 import 'package:responsive_framework/responsive_wrapper.dart';
 
 class NumericConstants{
