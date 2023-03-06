@@ -1,22 +1,23 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_test_project/constants/string_constants.dart';
 
 // Project imports:
 import 'package:flutter_test_project/models/data_grid_model.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  List<String> columnLabels = ["LABEL", "KEY", "TYPE", "VALUE"];
+  List<String> columnLabels = [StringConstants.label, StringConstants.key, StringConstants.type, StringConstants.value];
 
   List<DataGridModel> dataGridList = [];
 
   List<DataGridModel> configurableDataGridList = [];
 
-  List<String> get configurableDropDown => ["LABEL", "KEY", "TYPE", "VALUE"];
+  List<String> get configurableDropDown => [StringConstants.label, StringConstants.key, StringConstants.type, StringConstants.value];
 
-  String _labelValue = "LABEL";
-  String _keyValue = "KEY";
-  String _typeValue = "TYPE";
-  String _valueValue = "VALUE";
+  String _labelValue = StringConstants.label;
+  String _keyValue = StringConstants.key;
+  String _typeValue = StringConstants.type;
+  String _valueValue = StringConstants.value;
 
   String get labelValue => _labelValue;
 
@@ -48,10 +49,10 @@ class HomeViewModel extends ChangeNotifier {
 
   void resetDropDown() {
     configurableDataGridList = dataGridList;
-    _labelValue = "LABEL";
-    _keyValue = "KEY";
-    _typeValue = "TYPE";
-    _valueValue = "VALUE";
+    _labelValue = StringConstants.label;
+    _keyValue = StringConstants.key;
+    _typeValue = StringConstants.type;
+    _valueValue = StringConstants.value;
     notifyListeners();
   }
 
@@ -59,58 +60,58 @@ class HomeViewModel extends ChangeNotifier {
     List<DataGridModel> tempList = [];
     for (var dataGrid in configurableDataGridList) {
       switch (_labelValue) {
-        case "LABEL":
+        case StringConstants.label:
           dataGrid.label = dataGrid.label;
           break;
-        case "KEY":
+        case StringConstants.key:
           dataGrid.label = dataGrid.key;
           break;
-        case "TYPE":
+        case StringConstants.type:
           dataGrid.label = dataGrid.type;
           break;
-        case "VALUE":
+        case StringConstants.value:
           dataGrid.label = dataGrid.value;
           break;
       }
       switch (_keyValue) {
-        case "LABEL":
+        case StringConstants.label:
           dataGrid.key = dataGrid.label;
           break;
-        case "KEY":
+        case StringConstants.key:
           dataGrid.key = dataGrid.key;
           break;
-        case "TYPE":
+        case StringConstants.type:
           dataGrid.key = dataGrid.type;
           break;
-        case "VALUE":
+        case StringConstants.value:
           dataGrid.key = dataGrid.value;
           break;
       }
       switch (_typeValue) {
-        case "LABEL":
+        case StringConstants.label:
           dataGrid.type = dataGrid.label;
           break;
-        case "KEY":
+        case StringConstants.key:
           dataGrid.type = dataGrid.key;
           break;
-        case "TYPE":
+        case StringConstants.type:
           dataGrid.type = dataGrid.type;
           break;
-        case "VALUE":
+        case StringConstants.value:
           dataGrid.type = dataGrid.value;
           break;
       }
       switch (_valueValue) {
-        case "LABEL":
+        case StringConstants.label:
           dataGrid.value = dataGrid.label;
           break;
-        case "KEY":
+        case StringConstants.key:
           dataGrid.value = dataGrid.key;
           break;
-        case "TYPE":
+        case StringConstants.type:
           dataGrid.value = dataGrid.type;
           break;
-        case "VALUE":
+        case StringConstants.value:
           dataGrid.value = dataGrid.value;
           break;
       }
@@ -130,17 +131,17 @@ class HomeViewModel extends ChangeNotifier {
         case "LABEL":
         ///no edit
           break;
-        case "KEY":
+        case StringConstants.key:
           String? temp = dataGrid.label;
           dataGrid.label = dataGrid.key;
           dataGrid.key = temp;
           break;
-        case "TYPE":
+        case StringConstants.type:
           String? temp = dataGrid.label;
           dataGrid.label = dataGrid.type;
           dataGrid.type = temp;
           break;
-        case "VALUE":
+        case StringConstants.value:
           String? temp = dataGrid.label;
           dataGrid.label = dataGrid.value;
           dataGrid.value = temp;
@@ -153,15 +154,15 @@ class HomeViewModel extends ChangeNotifier {
           dataGrid.key = dataGrid.label;
           dataGrid.label = temp;
           break;
-        case "KEY":
+        case StringConstants.key:
         ///no edit
           break;
-        case "TYPE":
+        case StringConstants.type:
           String? temp = dataGrid.key;
           dataGrid.key = dataGrid.type;
           dataGrid.type = temp;
           break;
-        case "VALUE":
+        case StringConstants.value:
           String? temp = dataGrid.key;
           dataGrid.key = dataGrid.value;
           dataGrid.value = temp;
@@ -174,15 +175,15 @@ class HomeViewModel extends ChangeNotifier {
           dataGrid.type = dataGrid.label;
           dataGrid.label = temp;
           break;
-        case "KEY":
+        case StringConstants.key:
           String? temp = dataGrid.type;
           dataGrid.type = dataGrid.key;
           dataGrid.key = temp;
           break;
-        case "TYPE":
+        case StringConstants.type:
         ///no edit
           break;
-        case "VALUE":
+        case StringConstants.value:
           String? temp = dataGrid.type;
           dataGrid.type = dataGrid.value;
           dataGrid.value = temp;
@@ -195,17 +196,17 @@ class HomeViewModel extends ChangeNotifier {
           dataGrid.value = dataGrid.label;
           dataGrid.label = temp;
           break;
-        case "KEY":
+        case StringConstants.key:
           String? temp = dataGrid.value;
           dataGrid.value = dataGrid.key;
           dataGrid.key = temp;
           break;
-        case "TYPE":
+        case StringConstants.type:
           String? temp = dataGrid.value;
           dataGrid.value = dataGrid.type;
           dataGrid.type = temp;
           break;
-        case "VALUE":
+        case StringConstants.value:
         ///no edit
           break;
       }

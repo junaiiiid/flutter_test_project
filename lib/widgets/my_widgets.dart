@@ -1,11 +1,13 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // Package imports:
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
 import 'package:flutter_test_project/constants/extensions.dart';
+import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/models/data_grid_model.dart';
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
@@ -139,16 +141,16 @@ class MyWidgets {
                     dropdownValue = value!;
                   });
                   switch (settingsLabel) {
-                    case "LABEL":
+                    case StringConstants.label:
                       state.labelValue = value!;
                       break;
-                    case "KEY":
+                    case StringConstants.key:
                       state.keyValue = value!;
                       break;
-                    case "TYPE":
+                    case StringConstants.type:
                       state.typeValue = value!;
                       break;
-                    case "VALUE":
+                    case StringConstants.value:
                       state.valueValue = value!;
                       break;
                   }

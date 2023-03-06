@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/animation.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 
 class NumericConstants{
   NumericConstants._();
@@ -13,4 +14,11 @@ class NumericConstants{
   static Duration splashScreenDuration = const Duration(seconds: 3);
 
   static double appBarElevation = 0.0;
+
+  static List<ResponsiveBreakpoint> responsiveBreakPoints = const [
+    ResponsiveBreakpoint.resize(480, name: MOBILE),
+    ResponsiveBreakpoint.autoScale(800, name: TABLET),
+    ResponsiveBreakpoint.resize(1200, name: DESKTOP),
+    ResponsiveBreakpoint.autoScale(2460, name: '4K'),
+  ];
 }

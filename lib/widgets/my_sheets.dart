@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
 import 'package:flutter_test_project/constants/extensions.dart';
+import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
@@ -41,18 +42,18 @@ class MySheets {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 25.h),
                       child: Text(
-                        "Settings",
+                        StringConstants.settings,
                         style: MyTextStyles.h1,
                       ),
                     ),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "LABEL", initialValue: state.labelValue,),
+                        settingsLabel: StringConstants.label, initialValue: state.labelValue,),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "KEY", initialValue: state.keyValue,),
+                        settingsLabel: StringConstants.key, initialValue: state.keyValue,),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "TYPE", initialValue: state.typeValue,),
+                        settingsLabel: StringConstants.type, initialValue: state.typeValue,),
                     MyWidgets.customDropDownSettingItem(
-                        settingsLabel: "VALUE", initialValue: state.valueValue,),
+                        settingsLabel: StringConstants.value, initialValue: state.valueValue,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -62,14 +63,14 @@ class MySheets {
                               state.saveConfiguration();
                               StateService.pop();
                             },
-                            buttonText: "SAVE",),
+                            buttonText: StringConstants.save,),
                         MyButtons.shortButton(
                             backgroundColor: MyColors.blueShade1,
                             onTap: () {
                               state.resetDropDown();
                               StateService.pop();
                             },
-                            buttonText: "RESET",),
+                            buttonText: StringConstants.reset,),
                       ],
                     ),
                     SizedBox(

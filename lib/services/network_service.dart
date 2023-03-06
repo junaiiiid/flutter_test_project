@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 // Package imports:
+import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:http/http.dart' as http;
 
 // Project imports:
@@ -24,7 +25,7 @@ class NetworkService{
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
-      throw Exception('Failed to load data');
+      throw Exception(StringConstants.apiErrorMessage);
     }
   }
 }
