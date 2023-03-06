@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test_project/constants/extensions.dart';
-import 'package:flutter_test_project/models/configurable_dropdown_model.dart';
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
@@ -43,15 +42,18 @@ class MySheets {
                     MyWidgets.customDropDownSettingItem(settingsLabel: "LABEL", initialValue: state.labelValue),
                     MyWidgets.customDropDownSettingItem(settingsLabel: "KEY", initialValue: state.keyValue),
                     MyWidgets.customDropDownSettingItem(settingsLabel: "TYPE", initialValue: state.typeValue),
-                    MyWidgets.customDropDownSettingItem(settingsLabel: "VALUE", initialValue: state.typeValue),
+                    MyWidgets.customDropDownSettingItem(settingsLabel: "VALUE", initialValue: state.valueValue),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        MyButtons.shortButton(backgroundColor: MyColors.blueShade1, onTap: (){}, buttonText: "SAVE"),
+                        MyButtons.shortButton(backgroundColor: MyColors.blueShade1, onTap: (){
+                          state.saveConfiguration();
+                          StateService.pop();
+                        }, buttonText: "SAVE"),
                         MyButtons.shortButton(backgroundColor: MyColors.blueShade1, onTap: (){
                           state.resetDropDown();
                           StateService.pop();
-                        }, buttonText: "DISCARD"),
+                        }, buttonText: "RESET"),
                       ],
                     ),
                     SizedBox(height: 50.h,)
