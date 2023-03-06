@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test_project/constants/extensions.dart';
 import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/models/api_model.dart';
@@ -26,36 +27,39 @@ class HomeScreen extends ConsumerWidget {
               onLeftTap: () => StateService.pop(), onRightTap: () => exit(0)),
           actionOnTap: () {},
           titleText: StringConstants.appBarTitle),
-      body: FutureBuilder<ApiModel>(
-          future: NetworkService.fetchData(),
-          builder: (context, AsyncSnapshot<ApiModel> snapshot) {
-            if (snapshot.hasData) {
-              populateDataGrid(json: snapshot.data!);
-              return SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: DataTable(
-                      columns: state.columnLabels
-                          .map<DataColumn>((label) =>
-                          MyWidgets.labelColumn(labelText: label))
-                          .toList(),
-                      rows: state.dataGridList
-                          .map<DataRow>((value) => MyWidgets.labelRow(
-                          firstLabelText: value.label.toString(),
-                          secondLabelText: value.key.toString(),
-                          thirdLabelText: value.type.toString(),
-                          fourthLabelText: value.value.toString()))
-                          .toList()),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        child: FutureBuilder<ApiModel>(
+            future: NetworkService.fetchData(),
+            builder: (context, AsyncSnapshot<ApiModel> snapshot) {
+              if (snapshot.hasData) {
+                populateDataGrid(json: snapshot.data!);
+                return SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: DataTable(
+                        columns: state.columnLabels
+                            .map<DataColumn>((label) =>
+                            MyWidgets.labelColumn(labelText: label))
+                            .toList(),
+                        rows: state.dataGridList
+                            .map<DataRow>((value) => MyWidgets.labelRow(
+                            firstLabelText: value.label.toString(),
+                            secondLabelText: value.key.toString(),
+                            thirdLabelText: value.type.toString(),
+                            fourthLabelText: value.value.toString()))
+                            .toList()),
+                  ),
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  color: MyColors.white,
                 ),
               );
-            }
-            return Center(
-              child: CircularProgressIndicator(
-                color: MyColors.white,
-              ),
-            );
-          }),
+            }),
+      ),
     );
   }
 
