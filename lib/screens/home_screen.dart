@@ -6,20 +6,22 @@ import 'package:flutter_test_project/constants/extensions.dart';
 import 'package:flutter_test_project/constants/string_constants.dart';
 import 'package:flutter_test_project/models/api_model.dart';
 import 'package:flutter_test_project/models/data_grid_model.dart';
+import 'package:flutter_test_project/screens/home_screen_mobile.dart';
+import 'package:flutter_test_project/screens/home_screen_web.dart';
 import 'package:flutter_test_project/services/network_service.dart';
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/widgets/my_app_bars.dart';
 import 'package:flutter_test_project/widgets/my_popups.dart';
 import 'package:flutter_test_project/widgets/my_widgets.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends StatelessWidget {
   static const String id = "HOME_SCREEN";
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(StateService.homeStateHandler);
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.blueShade3,
       appBar: MyAppBars.genericAppBar(
@@ -34,24 +36,9 @@ class HomeScreen extends ConsumerWidget {
             builder: (context, AsyncSnapshot<ApiModel> snapshot) {
               if (snapshot.hasData) {
                 populateDataGrid(json: snapshot.data!);
-                return SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: DataTable(
-                        columns: state.columnLabels
-                            .map<DataColumn>((label) =>
-                            MyWidgets.labelColumn(labelText: label))
-                            .toList(),
-                        rows: state.dataGridList
-                            .map<DataRow>((value) => MyWidgets.labelRow(
-                            firstLabelText: value.label.toString(),
-                            secondLabelText: value.key.toString(),
-                            thirdLabelText: value.type.toString(),
-                            fourthLabelText: value.value.toString()))
-                            .toList()),
-                  ),
-                );
+                return ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+                    ? const HomeScreenMobile()
+                    : const HomeScreenWeb();
               }
               return Center(
                 child: CircularProgressIndicator(

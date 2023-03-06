@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_test_project/models/data_grid_model.dart';
+import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
 
 class MyWidgets {
@@ -15,7 +18,12 @@ class MyWidgets {
     );
   }
 
-  static DataRow labelRow({required String firstLabelText,required String secondLabelText,required String thirdLabelText,required String fourthLabelText,}) {
+  static DataRow labelRow({
+    required String firstLabelText,
+    required String secondLabelText,
+    required String thirdLabelText,
+    required String fourthLabelText,
+  }) {
     return DataRow(cells: [
       DataCell(
         Center(
@@ -50,5 +58,41 @@ class MyWidgets {
         ),
       ),
     ]);
+  }
+
+  static customListTile({required DataGridModel model}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: MyColors.blueShade1,
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.r),
+        ),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      margin: EdgeInsets.symmetric(vertical: 10.h),
+      child: ListTile(
+        leading: CircleAvatar(
+          radius: 25.r,
+          child: Center(
+            child: Text(
+              model.type.toString(),
+              style: MyTextStyles.p,
+            ),
+          ),
+        ),
+        title: Text(
+          model.label.toString(),
+          style: MyTextStyles.h2,
+        ),
+        subtitle: Text(
+          model.key.toString(),
+          style: MyTextStyles.h3,
+        ),
+        trailing: Text(
+          model.value.toString(),
+          style: MyTextStyles.p,
+        ),
+      ),
+    );
   }
 }

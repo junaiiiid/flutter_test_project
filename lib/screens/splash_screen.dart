@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen>
         child: ScaleTransition(
           scale: _animation,
           child: Icon(
-            Icons.apple,
+            widget.iconData,
             color: MyColors.blueShade2,
             size: 100.r,
           ),
