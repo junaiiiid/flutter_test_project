@@ -8,7 +8,7 @@ This is a cross-platform mobile application that allows users to customize param
 ##Splash Icon
 The app's splash screen will show a platform-specific icon when launched. For instance, Android will show the Android icon, iOS will show the Apple icon, and Web will show the Web icon.
 
-![img.png](img.png)
+![img_6.png](img_6.png)![img.png](img.png)
 
 ![img_1.png](img_1.png)
 
@@ -44,4 +44,4 @@ To install the app on your device, follow these steps:
 
 ##DEMO
 
-• https://www.google.com
+• https://data-grid-junaid.web.app/
