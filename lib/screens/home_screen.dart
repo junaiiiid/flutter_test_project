@@ -13,6 +13,7 @@ import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/widgets/my_app_bars.dart';
 import 'package:flutter_test_project/widgets/my_popups.dart';
+import 'package:flutter_test_project/widgets/my_sheets.dart';
 import 'package:flutter_test_project/widgets/my_widgets.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 
@@ -27,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       appBar: MyAppBars.genericAppBar(
           leadingOnTap: () => MyPopups.showAlertPopupWithOptions(
               onLeftTap: () => StateService.pop(), onRightTap: () => exit(0)),
-          actionOnTap: () {},
+          actionOnTap: () => MySheets.showSettingsSheet(),
           titleText: StringConstants.appBarTitle),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -65,5 +66,8 @@ class HomeScreen extends StatelessWidget {
     }
     StateService.context.read(StateService.homeStateHandler).dataGridList =
         dataGridList;
+    StateService.context
+        .read(StateService.homeStateHandler)
+        .configurableDataGridList = dataGridList;
   }
 }

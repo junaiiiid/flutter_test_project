@@ -13,7 +13,7 @@ class HomeScreenMobile extends ConsumerWidget {
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       child: ListView(
         physics: const BouncingScrollPhysics(),
-        children: state.dataGridList
+        children: state.configurableDataGridList
             .map<Widget>(
               (value) => MyWidgets.customListTile(model: value),
             )

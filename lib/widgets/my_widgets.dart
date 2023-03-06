@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_test_project/constants/extensions.dart';
+import 'package:flutter_test_project/models/configurable_dropdown_model.dart';
 import 'package:flutter_test_project/models/data_grid_model.dart';
+import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
+
+import '../constants/enums.dart';
 
 class MyWidgets {
   MyWidgets._();
@@ -93,6 +98,74 @@ class MyWidgets {
           style: MyTextStyles.p,
         ),
       ),
+    );
+  }
+
+  static customDropDownSettingItem(
+      {required String settingsLabel,
+      required String initialValue}) {
+    String dropdownValue = initialValue;
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 25.h),
+      child: StatefulBuilder(builder: (context, setState) {
+        final state = context.read(StateService.homeStateHandler);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              width: 100.w,
+              child: Text(
+                settingsLabel,
+                style: MyTextStyles.h2,
+              ),
+            ),
+            Icon(
+              Icons.arrow_forward,
+              color: MyColors.blueShade3,
+            ),
+            DropdownButtonHideUnderline(
+              child: DropdownButton<String?>(
+                value: dropdownValue,
+                icon: Icon(
+                  Icons.arrow_drop_down_circle_outlined,
+                  color: MyColors.white,
+                ),
+                dropdownColor: MyColors.blueShade1,
+                onChanged: (String? value){
+                  setState((){
+                    dropdownValue = value!;
+                  });
+                  switch(settingsLabel){
+                    case "LABEL":
+                      state.labelValue = value!;
+                      break;
+                    case "KEY":
+                      state.keyValue = value!;
+                      break;
+                    case "TYPE":
+                      state.typeValue = value!;
+                      break;
+                    case "VALUE":
+                      state.valueValue = value!;
+                      break;
+                  }
+                },
+                items: state.configurableDropDown
+                    .map<DropdownMenuItem<String>>(
+                        (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: MyTextStyles.h2,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        );
+      }),
     );
   }
 }
