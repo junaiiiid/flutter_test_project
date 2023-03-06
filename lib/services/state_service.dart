@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_project/screens/home_screen.dart';
 import 'package:flutter_test_project/screens/splash_screen.dart';
 import 'package:flutter_test_project/view_models/home_view_model.dart';
-import 'package:flutter_test_project/view_models/splash_view_model.dart';
 
 class StateService {
   StateService._();

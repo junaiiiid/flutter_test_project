@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test_project/constants/extensions.dart';
-import 'package:flutter_test_project/models/configurable_dropdown_model.dart';
 import 'package:flutter_test_project/models/data_grid_model.dart';
 import 'package:flutter_test_project/services/state_service.dart';
 import 'package:flutter_test_project/styles/my_colors.dart';
 import 'package:flutter_test_project/styles/my_text_styles.dart';
-
-import '../constants/enums.dart';
 
 class MyWidgets {
   MyWidgets._();
